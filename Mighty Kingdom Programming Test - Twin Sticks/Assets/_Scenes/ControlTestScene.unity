@@ -823,7 +823,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 6
   rotationSpeed: 6
-  bullet: {fileID: 4765869138894820, guid: e78b01f7420202a4da0a961530587f62, type: 2}
+  bullet: {fileID: 4347516545049560, guid: e0f32b8191b5fc84d8c5e4d464c2ce77, type: 2}
   bulletTimer: 0.3
   LeftStick: {fileID: 2070775573}
   RightStick: {fileID: 1801082461}
