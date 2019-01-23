@@ -19,10 +19,12 @@ public class TouchManager : MonoBehaviour {
 				case TouchPhase.Began:
 					//began touch, test if target hit
 					GameObject obj = GetObjectUnderPos(touch.position);
-					TouchTarget target = obj.GetComponent<TouchTarget>();
-					if(target != null) {
-						target.OnDown(touch.position);
-						targets[touch.fingerId] = target;
+					if(obj != null) {
+						TouchTarget target = obj.GetComponent<TouchTarget>();
+						if(target != null) {
+							target.OnDown(touch.position);
+							targets[touch.fingerId] = target;
+						}
 					}
 					break;
 				case TouchPhase.Ended:

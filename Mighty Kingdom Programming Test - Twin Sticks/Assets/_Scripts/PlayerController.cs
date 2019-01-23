@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 	public float Speed = 6;
 	public float rotationSpeed;
+	public float gravity = 20.0f;
 	public Transform bullet;
 	public float bulletTimer;
 	public Thumbstick LeftStick;
@@ -61,6 +62,7 @@ public class PlayerController : MonoBehaviour {
 		transform.rotation = NewRotation;
 
 		moveDir *= Speed;
+		moveDir.y = -gravity;
 	}
 
 	void FixedUpdate() {
