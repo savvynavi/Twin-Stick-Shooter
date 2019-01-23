@@ -63,15 +63,27 @@ public class PlayerController : MonoBehaviour {
 		if(lookDir.x != 0 || lookDir.z != 0) {
 			//transform.Rotate(Vector3.up * rightHorizontal * rotationSpeed);
 			NewRotation = Quaternion.LookRotation(lookDir, Vector3.up);
+			animator.SetBool("isShooting", true);
 		} else if (moveDir.x != 0 || moveDir.z != 0){
 			//transform.Rotate(Vector3.up * leftHorizontal * rotationSpeed);
 			NewRotation = Quaternion.LookRotation(moveDir, Vector3.up);
+			
+		}
+
+		if(lookDir.x == 0 || lookDir.z == 0) {
+			animator.SetBool("isShooting", false);
 		}
 
 		transform.rotation = NewRotation;
 
 		moveDir *= Speed;
 		//moveDir = transform.TransformDirection(moveDir);
+
+		if(Input.GetKeyDown("space")) {
+			
+		} else {
+			
+		}
 		
 	}
 
