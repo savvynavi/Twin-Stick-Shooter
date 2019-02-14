@@ -72,7 +72,17 @@ public class PlayerController : MonoBehaviour {
 	public void Shooting() {
 		if(Time.time - lastShot > bulletTimer) {
 			lastShot = Time.time;
-			Instantiate(bullet, transform.position + (transform.up * ((charaController.height / 4) * 3)) + (transform.forward * (charaController.radius + 1)), transform.rotation);
+
+			//grabs inactive object from object pool, if none available returns null
+			GameObject newBullet = ObjectPool.poolInstance.GetPooledObject();
+			if(newBullet == null) {
+				return;
+			}
+
+			newBullet.transform.position = transform.position + (transform.up * ((charaController.height / 4) * 3)) + (transform.forward * (charaController.radius + 0.25f)) + (transform.right * (0.25f));
+			newBullet.transform.rotation = transform.rotation;
+			newBullet.SetActive(true);
+			//Instantiate(bullet, transform.position + (transform.up * ((charaController.height / 4) * 3)) + (transform.forward * (charaController.radius + 1)), transform.rotation);
 		}
 	}
 }
